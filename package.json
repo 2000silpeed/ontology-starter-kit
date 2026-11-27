@@ -1,0 +1,31 @@
+{
+  "name": "ontology-starter-kit",
+  "version": "0.1.0",
+  "description": "A minimal typed ontology layer: metadata-driven object types, links, validated actions with audit, and an optional agent runtime.",
+  "type": "module",
+  "engines": {
+    "node": ">=23.6.0"
+  },
+  "scripts": {
+    "dev": "node --env-file=.env --watch src/index.ts",
+    "start": "node --env-file=.env src/index.ts",
+    "typecheck": "tsc --noEmit",
+    "agent": "node --env-file=.env src/agent/runAgent.ts",
+    "db:init": "node --env-file=.env scripts/run-sql.ts db/001_meta.sql db/002_domain.sql db/003_seed.sql"
+  },
+  "dependencies": {
+    "@anthropic-ai/claude-agent-sdk": "^0.1.77",
+    "@cfworker/json-schema": "^4.1.6",
+    "@hono/node-server": "^2.1.11",
+    "@modelcontextprotocol/sdk": "^1.32.2",
+    "hono": "^4.13.23",
+    "kysely": "^0.27.6",
+    "pg": "^8.23.1",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^24.19.4",
+    "@types/pg": "^8.23.1",
+    "typescript": "^5.9.3"
+  }
+}
